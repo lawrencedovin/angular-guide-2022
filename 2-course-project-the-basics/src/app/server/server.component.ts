@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.scss']
 })
 export class ServerComponent {
-  serverID: number = 10;
-  serverStatus: string = 'offline';
+
+  @Input() serverID: number = 0;
+  @Input() serverStatus: string = 'offline';
 
   changeServerStatus = () => {
     this.serverStatus = this.serverStatus === 'offline' ? 'online' : 'offline';
