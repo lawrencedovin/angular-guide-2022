@@ -1,11 +1,28 @@
-<button
+<form #serverForm="ngForm" (ngSubmit)="onSubmit(serverForm)" novalidate>
+  <div class="mb-3">
+    <label for="serverName" class="form-label">Server Name</label>
+    <input type="text" class="form-control" id="serverName" name="serverName" ngModel required>
+  </div>
+  <div class="mb-3">
+    <select class="form-select" name="serverStatus" aria-label="server select" (change)="onChange($event)" >
+      <option disabled>Server Status</option>
+      <option *ngFor="let serverStatus of serverStatuses" [ngValue]="serverStatus.value">
+        {{ serverStatus.name }}
+      </option>
+    </select>
+  </div>
+  <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
-  (click)="onCreateServer()"
->
-  Add Server
-</button>
+  >
+    Add Server
+  </button>
+</form>
 <p>{{ serverCreationStatus }}</p>
 <div *ngFor="let server of servers">
-  <app-server [serverID]="server.serverID" [serverStatus]="server.serverStatus"></app-server>
+  <app-server
+    [serverID]="server.serverID"
+    [serverName]="server.serverName"
+    [serverStatus]="server.serverStatus">
+  </app-server>
 </div>

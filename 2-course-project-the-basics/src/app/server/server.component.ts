@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ServerComponent {
 
-  @Input() serverID: number = 0;
-  @Input() serverStatus: string = 'offline';
+  @Input() serverID: string;
+  @Input() serverName: string;
+  @Input() serverStatus: string;
 
   changeServerStatus = () => {
     this.serverStatus = this.serverStatus === 'offline' ? 'online' : 'offline';
