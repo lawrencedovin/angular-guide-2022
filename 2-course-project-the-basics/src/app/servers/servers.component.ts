@@ -34,7 +34,3 @@ export class ServersComponent {
     this.servers.push(newServer);
   }
 }
-
-onChange(event: any) {
-  console.log(event.value);
-}
