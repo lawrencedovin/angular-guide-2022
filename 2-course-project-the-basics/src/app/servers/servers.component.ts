@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServerComponent } from '../server/server.component';
 import {NgForm} from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
@@ -26,7 +26,7 @@ export class ServersComponent {
 
   onSubmit(serverForm: NgForm) {
     let {serverName, serverStatus} = serverForm.value;
-    console.log(serverStatus.value);
+    console.log(serverForm.value);
     this.serverCreationStatus = 'Server was created.';
     let newServer = new ServerComponent();
     newServer.serverID = uuidv4();

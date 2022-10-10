@@ -3,7 +3,7 @@
   <input type="text" class="form-control" id="textInput" name="textInput"
     ngModel
     required
-    (input)="onUpdateRandomText($event)"
+    [(ngModel)]="randomTextInput"
   >
   <p>{{ randomTextInput }}</p>
 </div>
