@@ -16,6 +16,7 @@ export class ServersComponent {
     { name: 'Online', value: 'online' },
   ];
   servers: Array<ServerComponent> = [];
+  randomTextInput: string;
 
   constructor() {
     setTimeout(() => {
@@ -32,5 +33,9 @@ export class ServersComponent {
     newServer.serverName = serverName;
     newServer.serverStatus = serverStatus;
     this.servers.push(newServer);
+  }
+
+  onUpdateRandomText(event: Event) {
+    this.randomTextInput = (<HTMLInputElement>event.target).value;
   }
 }

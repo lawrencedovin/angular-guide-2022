@@ -1,3 +1,12 @@
+<div class="mb-3">
+  <label for="textInput" class="form-label">Random Text</label>
+  <input type="text" class="form-control" id="textInput" name="textInput"
+    ngModel
+    required
+    (input)="onUpdateRandomText($event)"
+  >
+  <p>{{ randomTextInput }}</p>
+</div>
 <form #serverForm="ngForm" (ngSubmit)="onSubmit(serverForm)">
   <div class="mb-3">
     <label for="serverName" class="form-label">Server Name</label>
@@ -12,10 +21,10 @@
     </select>
   </div>
   <button
-  class="btn btn-primary"
-  [disabled]="!allowNewServer"
-  >
-    Add Server
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    >
+      Add Server
   </button>
 </form>
 <p>{{ serverCreationStatus }}</p>
