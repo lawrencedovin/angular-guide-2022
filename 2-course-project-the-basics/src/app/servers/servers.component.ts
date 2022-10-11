@@ -11,25 +11,28 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./servers.component.scss']
 })
 export class ServersComponent {
-  allowNewServer = false;
-  serverCreationStatus = 'No server was created.';
+  // allowNewServer = false;
+  // serverCreationStatus = 'No server was created.';
+  serverCreated = false;
   randomTextInput: string;
   servers: Array<ServerComponent> = [];
   serverStatuses: Array<Dropdown> = dropdownData;
+  serverName = ''
 
-  constructor() {
-    setTimeout(() => {
-      this.allowNewServer = !this.allowNewServer;
-    }, 2000);
-  }
+  // constructor() {
+  //   setTimeout(() => {
+  //     this.allowNewServer = !this.allowNewServer;
+  //   }, 2000);
+  // }
 
   onSubmit(serverForm: NgForm) {
-    let {serverName, serverStatus} = serverForm.value;
+    let { serverStatus } = serverForm.value;
     console.log(serverForm.value);
-    this.serverCreationStatus = 'Server was created.';
+    // this.serverCreationStatus = 'Server was created.';
+    this.serverCreated = true;
     let newServer = new ServerComponent();
     newServer.serverID = uuidv4();
-    newServer.serverName = serverName;
+    newServer.serverName = this.serverName;
     newServer.serverStatus = serverStatus;
     this.servers.push(newServer);
   }

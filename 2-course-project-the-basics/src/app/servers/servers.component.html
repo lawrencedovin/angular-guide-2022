@@ -1,4 +1,4 @@
-<div class="mb-3">
+<!-- <div class="mb-3">
   <label for="textInput" class="form-label">Random Text</label>
   <input type="text" class="form-control" id="textInput" name="textInput"
     ngModel
@@ -6,11 +6,11 @@
     [(ngModel)]="randomTextInput"
   >
   <p>{{ randomTextInput }}</p>
-</div>
+</div> -->
 <form #serverForm="ngForm" (ngSubmit)="onSubmit(serverForm)">
   <div class="mb-3">
     <label for="serverName" class="form-label">Server Name</label>
-    <input type="text" class="form-control" id="serverName" name="serverName" ngModel required>
+    <input type="text" class="form-control" id="serverName" name="serverName" [(ngModel)]="serverName" required>
   </div>
   <div class="mb-3">
     <select class="form-select" name="serverStatus" aria-label="server select" ngModel>
@@ -22,12 +22,13 @@
   </div>
   <button
     class="btn btn-primary"
-    [disabled]="!allowNewServer"
+    [disabled]="serverName === ''"
     >
       Add Server
   </button>
 </form>
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">Server: {{ serverForm.value.serverName }} was created!</p>
 <div *ngFor="let server of servers">
   <app-server
     [serverID]="server.serverID"
