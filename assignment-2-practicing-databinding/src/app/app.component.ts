@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'assignment-2-practicing-databinding';
+  username = '';
+
+  resetUsername = () => {
+    this.username = '';
+  }
 }
