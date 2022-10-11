@@ -1,0 +1,7 @@
+<p>
+  Server {{ serverName }} with ID {{ serverID }} is
+  <span [ngClass]="serverStatus === 'online' ? 'online' : 'offline'">
+    {{ serverStatus }}
+  </span>
+</p>
+<button (click)="changeServerStatus()">Change Server Status</button>
