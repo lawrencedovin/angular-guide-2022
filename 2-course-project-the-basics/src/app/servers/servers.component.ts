@@ -18,12 +18,17 @@ export class ServersComponent {
   servers: Array<ServerComponent> = [];
   serverStatuses: Array<Dropdown> = dropdownData;
   serverName = ''
+  randomServerStatus = 'offline';
 
   // constructor() {
   //   setTimeout(() => {
   //     this.allowNewServer = !this.allowNewServer;
   //   }, 2000);
   // }
+
+  constructor() {
+    this.randomServerStatus = Math.random() > .5 ? 'online' : 'offline';
+  }
 
   onSubmit(serverForm: NgForm) {
     let { serverStatus } = serverForm.value;
@@ -39,5 +44,11 @@ export class ServersComponent {
 
     onUpdateRandomText(event: Event) {
     this.randomTextInput = (<HTMLInputElement>event.target).value;
+  }
+
+  getColor() {
+    return this.randomServerStatus === 'online'
+    ? {backgroundColor: 'green'}
+    : {backgroundColor: 'red'};
   }
 }
