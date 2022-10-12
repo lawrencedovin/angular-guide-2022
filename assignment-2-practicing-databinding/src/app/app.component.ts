@@ -8,7 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   username = '';
 
-  resetUsername = () => {
-    this.username = '';
-  }
+  resetUsername = () => this.username = '';
 }

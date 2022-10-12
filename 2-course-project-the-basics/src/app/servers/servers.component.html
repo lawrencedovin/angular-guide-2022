@@ -36,7 +36,10 @@
     [serverStatus]="server.serverStatus">
   </app-server>
 </div>
-
 <p [ngStyle]="getColor()" [ngClass]="{online: randomServerStatus === 'online'}">
   {{randomServerStatus}}
 </p>
+<ul>
+  Cat Names!
+  <li *ngFor="let cat of cats">{{ cat }}</li>
+</ul>

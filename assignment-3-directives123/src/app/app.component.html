@@ -1,4 +1,4 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-xs-12">
       <ol>
@@ -10,13 +10,8 @@
       </ol>
     </div>
   </div>
-</div> -->
+</div>
 
 <button (click)="toggleSecret()">Display Details</button>
 <p *ngIf="showSecret">Secret Password = tuna</p>
-<p *ngFor="let timeStamp of timeStamps; let i = index"
-    [ngStyle]="blueBackground(i)"
-    [ngClass]="{'white-text': i >= 4}"
->
-    Time Stamps: {{ timeStamp }}
-</p>
+<p *ngFor="let timeStamp of timeStamps">{{ timeStamp }}</p>

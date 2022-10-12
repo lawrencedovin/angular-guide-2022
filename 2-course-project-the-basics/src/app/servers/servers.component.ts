@@ -19,6 +19,7 @@ export class ServersComponent {
   serverStatuses: Array<Dropdown> = dropdownData;
   serverName = ''
   randomServerStatus = 'offline';
+  cats = ['gerry', 'michael', 'rick'];
 
   // constructor() {
   //   setTimeout(() => {
