@@ -5,8 +5,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
 
 // COMPONENTS
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeDetailComponent } from 'src/app/components/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from 'src/app/components/recipe-item/recipe-item.component';
+import { RecipeItemComponent } from 'src/app/components/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from 'src/app/components/recipe-list/recipe-list.component';
 
 
@@ -14,7 +15,8 @@ import { RecipeListComponent } from 'src/app/components/recipe-list/recipe-list.
   declarations: [
     RecipeDetailComponent,
     RecipeItemComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    RecipeBookComponent
   ],
   imports: [
     // ANGULAR MODULES
@@ -24,9 +26,7 @@ import { RecipeListComponent } from 'src/app/components/recipe-list/recipe-list.
     RouterModule
   ],
   exports: [
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    RecipeListComponent
+    RecipeBookComponent
   ]
 })
 export class RecipeBookModule { }
