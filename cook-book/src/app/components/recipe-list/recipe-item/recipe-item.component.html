@@ -1,9 +1,7 @@
-<li>
-  {{ recipe.name }}
-</li>
-<li>
-  {{ recipe.description }}
-</li>
-<li>
-  <img [src]="recipe.imagePath" alt="">
-</li>
+<div class="float-start">
+  <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+  <p class="list-group-item-text">{{ recipe.description }}</p>
+</div>
+<span class="float-end">
+  <img [src]="recipe.imagePath" [alt]="recipe.imagePath" class="img-responsive" style="max-height: 70px;">
+</span>
