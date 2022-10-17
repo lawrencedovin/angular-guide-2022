@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingredient } from 'src/app/models/ingredient.model';
+import { IngredientsService } from 'src/services/ingredients.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  constructor() { }
+  ingredients: Array<Ingredient>;
 
-  ngOnInit(): void {
+  constructor(private ingredientsService: IngredientsService) { }
+
+  ngOnInit() {
+    this.loadInitRecipes();
+  }
+
+  loadInitRecipes() {
+    this.ingredientsService
+      .getIngredients("../../../assets/ingredients-data.json")
+      .subscribe((data: Array<Ingredient>) => {
+        this.ingredients = data;
+      });
   }
 
 }

@@ -18,7 +18,7 @@ export class RecipeListComponent implements OnInit {
 
   loadInitRecipes() {
     this.recipesService
-      .getRecipes("../../../assets/data.json")
+      .getRecipes("../../../assets/recipes-data.json")
       .subscribe((data: Array<Recipe>) => {
         this.recipes = data;
       });
