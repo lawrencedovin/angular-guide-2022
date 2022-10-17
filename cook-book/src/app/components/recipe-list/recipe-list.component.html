@@ -1,5 +1,11 @@
-<ul *ngFor="let number of [0,1,2,3,4]">
+<ul *ngFor="let recipe of recipes">
   <li>
-    <app-recipe-item></app-recipe-item>
+    {{ recipe.name }}
+  </li>
+  <li>
+    {{ recipe.description }}
+  </li>
+  <li>
+    <img [src]="recipe.imagePath" alt="">
   </li>
 </ul>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 // CUSTOM MODULES
@@ -17,6 +18,7 @@ import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     // CUSTOM MODULES
     SharedModule,
     ShoppingListModule,
