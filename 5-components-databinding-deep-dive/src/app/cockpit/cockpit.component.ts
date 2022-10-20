@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { IServer } from '../models/server.model';
 
 @Component({
   selector: 'app-cockpit',
@@ -9,8 +10,8 @@ export class CockpitComponent  {
   newServerName = '';
   newServerContent = '';
 
-  @Output() newServerEvent = new EventEmitter<any>();
-  @Output() newBlueprintEvent = new EventEmitter<any>();
+  @Output() newServerEvent = new EventEmitter<IServer>();
+  @Output() newBlueprintEvent = new EventEmitter<IServer>();
 
   onAddServer() {
     // this.serverElements.push({
@@ -23,7 +24,6 @@ export class CockpitComponent  {
        name: this.newServerName,
        content: this.newServerContent
     });
-    console.log(this.newServerName);
   }
 
   onAddBlueprint() {
