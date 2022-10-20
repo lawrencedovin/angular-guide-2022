@@ -10,33 +10,33 @@ export class CockpitComponent  {
   newServerName = '';
   newServerContent = '';
 
-  @Output() newServerEvent = new EventEmitter<IServer>();
-  @Output() newBlueprintEvent = new EventEmitter<IServer>();
+  // server and blueprint created values sent to Parent Component.
+  @Output() serverCreated = new EventEmitter<IServer>();
+  @Output() blueprintCreated = new EventEmitter<IServer>();
 
-  onAddServer() {
+  onServerAdded() {
     // this.serverElements.push({
     //   type: 'server',
     //   name: this.newServerName,
     //   content: this.newServerContent
     // });
-    this.newServerEvent.emit({
+    this.serverCreated.emit({
        type: 'server',
        name: this.newServerName,
        content: this.newServerContent
     });
   }
 
-  onAddBlueprint() {
+  onBlueprintAdded() {
     // this.serverElements.push({
     //   type: 'blueprint',
     //   name: this.newServerName,
     //   content: this.newServerContent
     // });
-    this.newBlueprintEvent.emit({
+    this.blueprintCreated.emit({
       type: 'blueprint',
       name: this.newServerName,
       content: this.newServerContent
     });
   }
-
 }

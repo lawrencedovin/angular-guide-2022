@@ -9,7 +9,12 @@ import { IServer } from './models/server.model';
 export class AppComponent {
   serverElements: Array<IServer> = [];
 
-  addServerElement(newServer: any) {
+  // Server and Blueprint gets Child Value and "Adds" it to serverElements array.
+  onServerAdded(newServer: any) {
+    this.serverElements.push(newServer);
+  }
+
+  onBlueprintAdded(newServer: any) {
     this.serverElements.push(newServer);
   }
 }
