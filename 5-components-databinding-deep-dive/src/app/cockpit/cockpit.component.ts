@@ -10,11 +10,11 @@ export class CockpitComponent  {
   newServerName = '';
   newServerContent = '';
 
-  // server and blueprint created values sent to Parent Component.
+  // server and blueprint created values sent to the Parent Component.
   @Output() serverCreated = new EventEmitter<IServer>();
   @Output() blueprintCreated = new EventEmitter<IServer>();
 
-  onServerAdded() {
+  onServerAdded(serverNameInput: HTMLInputElement) {
     // this.serverElements.push({
     //   type: 'server',
     //   name: this.newServerName,
@@ -22,7 +22,7 @@ export class CockpitComponent  {
     // });
     this.serverCreated.emit({
        type: 'server',
-       name: this.newServerName,
+       name: serverNameInput.value,
        content: this.newServerContent
     });
   }
