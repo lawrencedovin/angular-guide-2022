@@ -7,7 +7,7 @@ import { IServer } from '../models/server.model';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent  {
-  newServerName = '';
+  // newServerName = '';
   newServerContent = '';
 
   // server and blueprint created values sent to the Parent Component.
@@ -27,7 +27,7 @@ export class CockpitComponent  {
     });
   }
 
-  onBlueprintAdded() {
+  onBlueprintAdded(serverNameInput: HTMLInputElement) {
     // this.serverElements.push({
     //   type: 'blueprint',
     //   name: this.newServerName,
@@ -35,7 +35,7 @@ export class CockpitComponent  {
     // });
     this.blueprintCreated.emit({
       type: 'blueprint',
-      name: this.newServerName,
+      name: serverNameInput.value,
       content: this.newServerContent
     });
   }
