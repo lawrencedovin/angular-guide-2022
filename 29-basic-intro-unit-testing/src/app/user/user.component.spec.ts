@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { UserComponent } from './user.component';
+import { UserService } from './user.service';
 
 describe('UserComponent', () => {
   beforeEach(() => {
@@ -15,5 +16,52 @@ describe('UserComponent', () => {
     let app = fixture.debugElement.componentInstance;
     // Tests if the application exists and is starting up
     expect(app).toBeTruthy();
-  })
+  });
+
+  it('should use the user name from the service', () => {
+    // Creating the User Component
+    let fixture = TestBed.createComponent(UserComponent);
+    // debugElement is the Element exposed to us for testing purposes
+    let app = fixture.debugElement.componentInstance;
+    // Uses Angular Injector and gets instance of UserService
+    // Forces UserService to be injected into the Component in testing environment
+    let userService = fixture.debugElement.injector.get(UserService);
+    // Change detectiction updates our properties of app.user.name according to userService.user.name
+    fixture.detectChanges();
+    // Checks if userService user.name is equal to app user.name
+    expect(userService.user.name).toEqual(app.user.name);
+  });
+
+  it('should display the user name if user is logged in', () => {
+    // Creating the User Component
+    let fixture = TestBed.createComponent(UserComponent);
+    // debugElement is the Element exposed to us for testing purposes
+    let app = fixture.debugElement.componentInstance;
+    // Checks if app is Logged in
+    app.LoggedIn = true;
+    // Change detectiction updates our properties of app.user.name according to userService.user.name
+    fixture.detectChanges();
+    // Gets accessed to compiled template
+    let compiled = fixture.debugElement.nativeElement;
+    // Checks if the template contains app user.name
+    expect(compiled.querySelector('p').textContent).toContain(app.user.name);
+
+  });
+
+  it(`shouldn't display the user name if user is not logged in`, () => {
+    // Creating the User Component
+    let fixture = TestBed.createComponent(UserComponent);
+    // debugElement is the Element exposed to us for testing purposes
+    let app = fixture.debugElement.componentInstance;
+    // Checks if app is Logged in
+    app.LoggedIn = false;
+    // Change detectiction updates our properties of app.user.name according to userService.user.name
+    fixture.detectChanges();
+    // Gets accessed to compiled template
+    let compiled = fixture.debugElement.nativeElement;
+    // Checks if the template doesn't contain app user.name
+    expect(compiled.querySelector('p').textContent).not.toContain(app.user.name);
+  });
+
+  it(`shouldn't fetch data successfully if not called asynchronously`,)
 });
