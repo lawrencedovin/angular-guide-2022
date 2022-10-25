@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'assignment-4-property-';
+  numbers: number[] = [];
+
+  addNumber(newNumber: number) {
+    this.numbers.push(newNumber);
+  }
 }
