@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { IServer } from '../models/server.model';
 
 @Component({
@@ -8,7 +8,12 @@ import { IServer } from '../models/server.model';
 })
 export class CockpitComponent  {
   // newServerName = '';
-  newServerContent = '';
+  // newServerContent = '';
+  // Argument of @ViewChild is the selector which you can input the name
+  // of the local reference ie. #serverContentInput
+  // Can also use a Component as an argument ie. CockpitComponent
+  // To get the first occurence of the CockpitComponent
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
 
   // server and blueprint created values sent to the Parent Component.
   @Output() serverCreated = new EventEmitter<IServer>();
@@ -23,7 +28,7 @@ export class CockpitComponent  {
     this.serverCreated.emit({
        type: 'server',
        name: serverNameInput.value,
-       content: this.newServerContent
+       content: this.serverContentInput.nativeElement.value
     });
   }
 
@@ -33,10 +38,15 @@ export class CockpitComponent  {
     //   name: this.newServerName,
     //   content: this.newServerContent
     // });
+    // this.blueprintCreated.emit({
+    //   type: 'blueprint',
+    //   name: serverNameInput.value,
+    //   content: this.newServerContent
+    // });
     this.blueprintCreated.emit({
       type: 'blueprint',
       name: serverNameInput.value,
-      content: this.newServerContent
+      content: this.serverContentInput.nativeElement.value
     });
   }
 }
