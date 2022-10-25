@@ -17,4 +17,13 @@ export class AppComponent {
   onBlueprintAdded(newServer: any) {
     this.serverElements.push(newServer);
   }
+
+  constructor() {
+    console.log('constructor called');
+  }
+
+  onDestroyFirst() {
+    this.serverElements.splice(0, 1);
+  }
+
 }
