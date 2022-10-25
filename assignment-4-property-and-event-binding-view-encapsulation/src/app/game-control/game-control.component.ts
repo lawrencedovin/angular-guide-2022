@@ -17,7 +17,7 @@ export class GameControlComponent implements OnInit {
 
   }
 
-  startGame() {
+  onStartGame() {
     this.timer = setInterval(() => {
       this.incrementingNumber++;
       this.incrementedNumberEvent.emit(this.incrementingNumber);
@@ -25,7 +25,7 @@ export class GameControlComponent implements OnInit {
     }, 1000);
   }
 
-  stopGame() {
+  onStopGame() {
     clearInterval(this.timer);
   }
 

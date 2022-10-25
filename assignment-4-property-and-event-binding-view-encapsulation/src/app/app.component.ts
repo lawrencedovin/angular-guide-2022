@@ -11,4 +11,8 @@ export class AppComponent {
   addNumber(newNumber: number) {
     this.numbers.push(newNumber);
   }
+
+  greetAlert(name: string) {
+    alert('Hello! ' + name);
+  }
 }
