@@ -1,9 +1,6 @@
 <div class="card my-3">
   <div class="card-header">{{ element.name }}</div>
   <div class="list-group list-group-flush">
-    <p class="list-group-item">
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <ng-content></ng-content>
   </div>
 </div>
