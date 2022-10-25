@@ -1,5 +1,5 @@
-<app-header></app-header>
+<app-header (routeSelectedEvent)="onNavigate($event)"></app-header>
 <div class="container">
-  <app-recipe-book></app-recipe-book>
-  <app-shopping-list></app-shopping-list>
+  <app-recipe-book *ngIf="currentRoute === 'recipe'"></app-recipe-book>
+  <app-shopping-list *ngIf="currentRoute === 'shopping-list'"></app-shopping-list>
 </div>
