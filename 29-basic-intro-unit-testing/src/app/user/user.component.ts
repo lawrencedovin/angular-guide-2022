@@ -11,13 +11,13 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
   user: {name: string};
   isLoggedIn = false;
-  data: string;
+  data: any;
 
   constructor(private userService: UserService, private dataService: DataService) { }
 
   ngOnInit(): void {
     this.user = this.userService.user;
-    this.dataService.getDetails().then((data: string) => this.data = data);
+    this.dataService.getDetails().then((data: any) => this.data = data);
   }
 
 }

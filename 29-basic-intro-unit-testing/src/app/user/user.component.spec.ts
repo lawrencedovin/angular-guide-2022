@@ -39,14 +39,13 @@ describe('UserComponent', () => {
     // debugElement is the Element exposed to us for testing purposes
     let app = fixture.debugElement.componentInstance;
     // Checks if app is Logged in
-    app.LoggedIn = true;
+    app.isLoggedIn = true;
     // Change detectiction updates our properties of app.user.name according to userService.user.name
     fixture.detectChanges();
     // Gets accessed to compiled template
     let compiled = fixture.debugElement.nativeElement;
     // Checks if the template contains app user.name
     expect(compiled.querySelector('p').textContent).toContain(app.user.name);
-
   });
 
   it(`shouldn't display the user name if user is not logged in`, () => {
@@ -55,7 +54,7 @@ describe('UserComponent', () => {
     // debugElement is the Element exposed to us for testing purposes
     let app = fixture.debugElement.componentInstance;
     // Checks if app is Logged in
-    app.LoggedIn = false;
+    app.isLoggedIn = false;
     // Change detectiction updates our properties of app.user.name according to userService.user.name
     fixture.detectChanges();
     // Gets accessed to compiled template
