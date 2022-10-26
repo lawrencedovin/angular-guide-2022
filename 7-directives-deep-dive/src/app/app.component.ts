@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '7-directives-deep-dive';
+  numbers = [1, 2, 3, 4, 5, 6, 7];
+  oddNumbers = this.numbers.filter((number) => number % 2 === 1);
+  evenNumbers = this.numbers.filter((number) => number % 2 === 0);
+  onlyOdd = false;
 }
