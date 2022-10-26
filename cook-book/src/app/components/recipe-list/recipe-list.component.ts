@@ -31,7 +31,7 @@ export class RecipeListComponent implements OnInit {
     this.selectedRecipe = recipe;
   }
 
-  passRecipe() {
+  passRecipeValue() {
     this.passRecipeValueEvent.emit(this.selectedRecipe);
   }
 

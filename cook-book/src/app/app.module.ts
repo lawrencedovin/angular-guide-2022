@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     // CUSTOM MODULES
     SharedModule,
     ShoppingListModule,

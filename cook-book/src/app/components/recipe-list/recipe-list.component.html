@@ -7,6 +7,10 @@
 <hr>
 <div class="row">
   <div class="col-xs-12 list-group" *ngFor="let recipe of recipes">
-      <app-recipe-item [recipe]="recipe" (selectedRecipeEvent)="getRecipeSelected($event)" (click)="passRecipe()"></app-recipe-item>
+      <app-recipe-item
+        [recipe]="recipe"
+        (selectedRecipeEvent)="getRecipeSelected($event)"
+        (click)="passRecipeValue()">
+      </app-recipe-item>
   </div>
 </div>
