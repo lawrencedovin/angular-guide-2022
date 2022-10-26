@@ -29,4 +29,8 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients.push(ingredient);
   }
 
+  deleteIngredientFromList() {
+    this.ingredients.pop();
+  }
+
 }

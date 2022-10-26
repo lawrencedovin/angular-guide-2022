@@ -11,12 +11,23 @@ export class ShoppingListEditComponent {
   @ViewChild('nameInput') nameInput: ElementRef;
   @ViewChild('amountInput') amountInput: ElementRef;
 
-  @Output() ingredientsAdded = new EventEmitter<Ingredient>();
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  @Output() ingredientDeleted = new EventEmitter<void>();
 
-  onIngredientAdd(){
-    this.ingredientsAdded.emit({
+  onAddIngredient(){
+    this.ingredientAdded.emit({
       name: this.nameInput.nativeElement.value,
       amount: this.amountInput.nativeElement.value
     });
+    this.onClearInput();
+  }
+
+  onDeleteIngredient() {
+    this.ingredientDeleted.emit();
+  }
+
+  onClearInput() {
+    this.nameInput.nativeElement.value = '';
+    this.amountInput.nativeElement.value = '';
   }
 }
