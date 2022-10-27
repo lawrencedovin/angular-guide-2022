@@ -6,6 +6,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class UsersService {
   activeUsers = ['Max', 'Anna'];
   inactiveUsers = ['Chris', 'Manu'];
+  count = 0;
 
   getUpdatedStatusID = new EventEmitter<number>();
 

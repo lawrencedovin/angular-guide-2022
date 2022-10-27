@@ -21,11 +21,13 @@ export class AppComponent implements OnInit {
     );
   }
 
+  onSetToActive(id: number) {
+    this.usersService.setToActive(id);
+  }
+
   onSetToInactive(id: number) {
     this.usersService.setToInactive(id);
   }
 
-  onSetToActive(id: number) {
-    this.usersService.setToActive(id);
-  }
+
 }
