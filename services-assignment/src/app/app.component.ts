@@ -9,12 +9,16 @@ import { UsersService } from './services/users.service';
 export class AppComponent implements OnInit {
   activeUsers: Array<string> = [];
   inactiveUsers: Array<string> = [];
+  id: number;
 
   constructor(private usersService: UsersService){}
 
   ngOnInit() {
     this.activeUsers = this.usersService.activeUsers;
     this.inactiveUsers = this.usersService.inactiveUsers;
+    this.usersService.getUpdatedStatusID.subscribe(
+      (id) => this.id = id
+    );
   }
 
   onSetToInactive(id: number) {

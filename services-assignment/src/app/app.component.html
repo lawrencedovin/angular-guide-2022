@@ -6,7 +6,7 @@
         (userSetToInactive)="onSetToInactive($event)"></app-active-users>
       <app-inactive-users
         [users]="inactiveUsers"
-        (userSetToActive)="onSetToActive($event)"></app-inactive-users>
+        (click)="onSetToActive(id)"></app-inactive-users>
     </div>
     <!--
       Optimize this app by adding a UsersService which manages the active and inactive users.

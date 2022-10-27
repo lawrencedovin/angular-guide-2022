@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class UsersService {
   activeUsers = ['Max', 'Anna'];
   inactiveUsers = ['Chris', 'Manu'];
+
+  getUpdatedStatusID = new EventEmitter<number>();
 
   setToInactive(id: number) {
     this.inactiveUsers.push(this.activeUsers[id]);
