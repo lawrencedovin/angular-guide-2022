@@ -9,7 +9,8 @@ import { AccountsService } from "src/services/accounts.service";
 export class NewAccountComponent {
 
   constructor(private accountsService: AccountsService) {
-    //subscribe listens to changes of a value
+    // subscribe listens to changes of a value
+    // If value changes then executes code.
     this.accountsService.statusUpdate.subscribe(
       (status) => alert(`New Status: ${status}`)
     );
