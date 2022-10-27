@@ -6,7 +6,7 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col-xs-12 list-group" *ngFor="let recipe of recipes">
+  <div class="col-xs-12 list-group" *ngFor="let recipe of recipes" role="tablist">
       <app-recipe-item
         [recipe]="recipe"
         (selectedRecipeEvent)="getRecipeSelected($event)"
