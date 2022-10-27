@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+
+import { UsersService } from 'src/app/services/users.service';
+import { LoggingService } from 'src/app/services/logging.service';
 
 @Component({
   selector: 'app-active-users',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./active-users.component.scss']
 })
 export class ActiveUsersComponent implements OnInit {
+  users: string[];
 
-  constructor() { }
+  constructor(private userService: UsersService, private loggingService: LoggingService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.users = this.userService.activeUsers;
   }
 
+  onSetToInactive(id: number) {
+    this.loggingService.logStatusChange(this.users[id], 'inactive');
+    this.userService.setToInactive(id);
+  }
 }
