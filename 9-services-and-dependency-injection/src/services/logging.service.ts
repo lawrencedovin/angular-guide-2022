@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class LoggingService {
   logStatusUpdate(name: string, status: string) {
-    alert(`${name} changed status to: ${status}`);
+    console.log(`${name} changed status to: ${status}`);
   }
 }
