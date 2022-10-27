@@ -1,22 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { AccountsService } from 'src/services/accounts.service';
-import { LoggingService } from 'src/services/logging.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss'],
-  providers: [LoggingService]
+  styleUrls: ['./account.component.scss']
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
   @Input() id: number;
 
-  constructor(private loggingService: LoggingService,
-              private accountsService: AccountsService) {}
+  constructor(private accountsService: AccountsService) {}
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.logStatusUpdate(this.account.name, status);
+    this.accountsService.statusUpdate.emit(status);
   }
 }

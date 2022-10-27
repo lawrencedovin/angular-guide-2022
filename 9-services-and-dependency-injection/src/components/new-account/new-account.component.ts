@@ -1,20 +1,21 @@
 import { Component } from "@angular/core";
 import { AccountsService } from "src/services/accounts.service";
-import { LoggingService } from "src/services/logging.service";
 
 @Component({
   selector: "app-new-account",
   templateUrl: "./new-account.component.html",
-  styleUrls: ["./new-account.component.scss"],
-  providers: [LoggingService]
+  styleUrls: ["./new-account.component.scss"]
 })
 export class NewAccountComponent {
 
-  constructor(private loggingService: LoggingService,
-              private accountsService: AccountsService) {}
+  constructor(private accountsService: AccountsService) {
+    //subscribe listens to changes of a value
+    this.accountsService.statusUpdate.subscribe(
+      (status) => alert(`New Status: ${status}`)
+    );
+  }
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountsService.addAccount(accountName, accountStatus);
-    this.loggingService.logStatusUpdate(accountName, accountStatus);
   }
 }
