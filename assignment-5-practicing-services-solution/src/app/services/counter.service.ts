@@ -4,10 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CounterService {
-
   counter = 0;
 
-  logCounter() {
+  incrementCounter() {
     this.counter++;
     console.log(`Counter: ${this.counter}`);
   }

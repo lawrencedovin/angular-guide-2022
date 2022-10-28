@@ -7,11 +7,15 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./inactive-users.component.scss']
 })
 export class InactiveUsersComponent {
-  @Input() users: string[];
+  inactiveUsers: Array<string> = [];
 
   constructor(private usersService: UsersService) {}
 
+  ngOnInit() {
+    this.inactiveUsers = this.usersService.inactiveUsers;
+  }
+
   onSetToActive(id: number) {
-    this.usersService.getUpdatedStatusID.emit(id);
+    this.usersService.setToActive(id);
   }
 }
