@@ -15,7 +15,7 @@ export class ShoppingListEditComponent {
   constructor(private shoppingListService: ShoppingListService) {}
 
   onAddIngredient(){
-    this.shoppingListService.addIngredientToList(
+    this.shoppingListService.addIngredientToShoppingList(
       {name: this.nameInput.nativeElement.value,
       amount: this.amountInput.nativeElement.value}
     )
@@ -23,7 +23,7 @@ export class ShoppingListEditComponent {
   }
 
   onDeleteIngredient() {
-    this.shoppingListService.deleteIngredientFromList();
+    this.shoppingListService.deleteIngredientToShoppingList();
   }
 
   onClearInput() {

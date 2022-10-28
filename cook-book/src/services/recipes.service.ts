@@ -9,6 +9,8 @@ export class RecipesService {
   private recipes: Array<Recipe> = recipesData;
   selectedRecipeEvent = new EventEmitter<Recipe>();
 
+  constructor() {}
+
   getRecipes() {
     // Returns new array which us an exact copy of the recipes array
     return this.recipes.slice();

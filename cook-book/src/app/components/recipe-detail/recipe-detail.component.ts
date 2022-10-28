@@ -1,17 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ShoppingListService } from 'src/services/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.scss']
 })
-export class RecipeDetailComponent implements OnInit {
+export class RecipeDetailComponent{
 
   @Input() recipeItem;
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) {}
 
-  ngOnInit(): void {
+  onAddToShoppingList() {
+    this.shoppingListService.addIngredientsToShoppingList(this.recipeItem.ingredients);
   }
 
 }
