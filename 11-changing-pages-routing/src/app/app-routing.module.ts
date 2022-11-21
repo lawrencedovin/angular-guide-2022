@@ -6,12 +6,11 @@ import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   // If URL has just a / redirects to home route
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
   { path: 'users', component: UsersComponent },
   // If URL is not found redirects to home route
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
