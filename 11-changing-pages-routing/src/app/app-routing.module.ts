@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ServersComponent } from './components/servers/servers.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserComponent } from './components/users/user/user.component';
 
 const routes: Routes = [
   // If URL has just a / redirects to home route
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
   { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UserComponent },
   // If URL is not found redirects to home route
   { path: '**', redirectTo: '' }
 ];
