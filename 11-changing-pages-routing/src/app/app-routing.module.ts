@@ -8,6 +8,7 @@ import { UserComponent } from './components/users/user/user.component';
 import { EditServerComponent } from './components/servers/edit-server/edit-server.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { DeactivateGuardService } from './services/deactivate-guard.service';
 
 const routes: Routes = [
   // If URL has just a / redirects to home route
@@ -21,7 +22,7 @@ const routes: Routes = [
   component: ServersComponent,
   children: [
     { path: ':id', component: ServerComponent },
-    { path: ':id/:edit', component: EditServerComponent }
+    { path: ':id/:edit', component: EditServerComponent, canDeactivate: [DeactivateGuardService] }
   ]},
   { path: 'not-found', component: PageNotFoundComponent},
   // If URL is not found redirects to home route
