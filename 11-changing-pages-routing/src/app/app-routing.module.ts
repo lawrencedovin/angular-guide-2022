@@ -6,6 +6,8 @@ import { ServerComponent } from './components/servers/server/server.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/users/user/user.component';
 import { EditServerComponent } from './components/servers/edit-server/edit-server.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   // If URL has just a / redirects to home route
@@ -13,12 +15,17 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent }
   ]},
-  { path: 'servers', component: ServersComponent, children: [
+  { path: 'servers',
+  canActivate: [AuthGuardService],
+  canActivateChild: [AuthGuardService],
+  component: ServersComponent,
+  children: [
     { path: ':id', component: ServerComponent },
     { path: ':id/:edit', component: EditServerComponent }
   ]},
+  { path: 'not-found', component: PageNotFoundComponent},
   // If URL is not found redirects to home route
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
