@@ -10,11 +10,13 @@ import { EditServerComponent } from './components/servers/edit-server/edit-serve
 const routes: Routes = [
   // If URL has just a / redirects to home route
   { path: '', component: HomeComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id', component: ServerComponent },
-  { path: 'servers/:id/:edit', component: EditServerComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UserComponent },
+  { path: 'users', component: UsersComponent, children: [
+    { path: ':id/:name', component: UserComponent }
+  ]},
+  { path: 'servers', component: ServersComponent, children: [
+    { path: ':id', component: ServerComponent },
+    { path: ':id/:edit', component: EditServerComponent }
+  ]},
   // If URL is not found redirects to home route
   { path: '**', redirectTo: '' }
 ];
