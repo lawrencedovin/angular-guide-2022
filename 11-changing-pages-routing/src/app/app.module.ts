@@ -18,6 +18,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ServersService } from './services/servers.service';
 import { DeactivateGuardService } from './services/deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DeactivateGuardService } from './services/deactivate-guard.service';
     UsersComponent,
     UserComponent,
     ServersComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
