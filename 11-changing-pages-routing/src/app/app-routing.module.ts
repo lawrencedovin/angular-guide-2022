@@ -10,6 +10,7 @@ import { EditServerComponent } from './components/servers/edit-server/edit-serve
 import { AuthGuardService } from './services/auth-guard.service';
 import { DeactivateGuardService } from './services/deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolverService } from './services/server-resolver.service';
 
 const routes: Routes = [
   // If URL has just a / redirects to home route
@@ -22,7 +23,7 @@ const routes: Routes = [
   canActivateChild: [AuthGuardService],
   component: ServersComponent,
   children: [
-    { path: ':id', component: ServerComponent },
+    { path: ':id', component: ServerComponent, resolve: {server: ServerResolverService} },
     { path: ':id/:edit', component: EditServerComponent, canDeactivate: [DeactivateGuardService] }
   ]},
   // { path: 'not-found', component: PageNotFoundComponent},

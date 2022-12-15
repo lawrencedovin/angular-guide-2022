@@ -19,6 +19,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { ServersService } from './services/servers.service';
 import { DeactivateGuardService } from './services/deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolverService } from './services/server-resolver.service';
 
 
 @NgModule({
@@ -39,7 +40,13 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     FormsModule,
     SharedModule,
   ],
-  providers: [AuthService, AuthGuardService, ServersService, DeactivateGuardService],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    ServersService,
+    DeactivateGuardService,
+    ServerResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
