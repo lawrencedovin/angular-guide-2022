@@ -15,4 +15,13 @@ export class RecipesService {
     // Returns new array which us an exact copy of the recipes array
     return this.recipes.slice();
   }
+
+  getRecipe(id: number){
+    const recipe = this.recipes.find(
+      (recipe) => {
+        return recipe.id === id;
+      }
+    );
+    return recipe;
+  }
 }
