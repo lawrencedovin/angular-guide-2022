@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'cook-book';
   currentRoute = '';
 
-  onNavigate(routeName: string) {
-    this.currentRoute = routeName;
-  }
+  // onNavigate(routeName: string) {
+  //   this.currentRoute = routeName;
+  // }
 }

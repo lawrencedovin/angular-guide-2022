@@ -7,11 +7,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() routeSelectedEvent = new EventEmitter<string>();
+  // @Output() routeSelectedEvent = new EventEmitter<string>();
 
-  onSelectRoute(route: string) {
-    this.routeSelectedEvent.emit(route);
-  }
+  // onSelectRoute(route: string) {
+  //   this.routeSelectedEvent.emit(route);
+  // }
 
   constructor() { }
 
