@@ -10,6 +10,7 @@ import { RecipeDetailComponent } from 'src/app/components/recipe-detail/recipe-d
 import { RecipeItemComponent } from 'src/app/components/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from 'src/app/components/recipe-list/recipe-list.component';
 import { RecipeStartComponent } from 'src/app/components/recipe-start/recipe-start.component';
+import { RecipesEditComponent } from 'src/app/components/recipes-edit/recipes-edit.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RecipeStartComponent } from 'src/app/components/recipe-start/recipe-sta
     RecipeItemComponent,
     RecipeListComponent,
     RecipeBookComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipesEditComponent
   ],
   imports: [
     // ANGULAR MODULES
