@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from 'src/app/models/ingredient.model';
 import shoppingListData from '../assets/ingredients-data.json';
 
@@ -6,7 +7,7 @@ import shoppingListData from '../assets/ingredients-data.json';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  shoppingListChangedEvent = new EventEmitter<Ingredient[]>();
+  shoppingListChangedEvent = new Subject<Ingredient[]>();
 
   private shoppingList = shoppingListData;
 
@@ -16,16 +17,16 @@ export class ShoppingListService {
 
   addIngredientToShoppingList(ingredient: Ingredient) {
     this.shoppingList.push(ingredient);
-    this.shoppingListChangedEvent.emit(this.shoppingList.slice());
+    this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 
   addIngredientsToShoppingList(ingredients: Array<Ingredient>) {
     this.shoppingList.push(...ingredients);
-    this.shoppingListChangedEvent.emit(this.shoppingList.slice());
+    this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 
   deleteIngredientToShoppingList() {
     this.shoppingList.pop();
-    this.shoppingListChangedEvent.emit(this.shoppingList.slice());
+    this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 }

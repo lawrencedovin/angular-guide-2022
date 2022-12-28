@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cook-book';
-  currentRoute = '';
+  // currentRoute = '';
 
   // onNavigate(routeName: string) {
   //   this.currentRoute = routeName;
