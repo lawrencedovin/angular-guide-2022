@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title '10-changing-pages-routing'`, () => {
+  it(`should have as title '13-understanding-observables'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('10-changing-pages-routing');
+    expect(app.title).toEqual('13-understanding-observables');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('10-changing-pages-routing app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('13-understanding-observables app is running!');
   });
 });

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = '10-changing-pages-routing';
+  title = '13-understanding-observables';
 }

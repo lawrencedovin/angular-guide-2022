@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "10-changing-pages-routing": {
+    "13-understanding-observables": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/10-changing-pages-routing",
+            "outputPath": "dist/13-understanding-observables",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "10-changing-pages-routing:build:production"
+              "browserTarget": "13-understanding-observables:build:production"
             },
             "development": {
-              "browserTarget": "10-changing-pages-routing:build:development"
+              "browserTarget": "13-understanding-observables:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "10-changing-pages-routing:build"
+            "browserTarget": "13-understanding-observables:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "10-changing-pages-routing"
+  "defaultProject": "13-understanding-observables"
 }
