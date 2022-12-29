@@ -13,6 +13,79 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
+      <form #subscriptionForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            name="email"
+            ngModel
+            required
+            email
+            #email="ngModel"
+          >
+          <span
+            class="help-block"
+            *ngIf="!email.valid && email.touched"
+          >
+            Please enter a valid email.
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="subscriptions">Subscriptions</label>
+          <select
+            id="subscriptions"
+            class="form-control"
+            name="subscriptions"
+            [ngModel]="defaultSubscription"
+          >
+            <option
+              *ngFor="let subscription of subscriptionOptions"
+              value={{subscription.value}}
+            >
+              {{subscription.text}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            name="password"
+            ngModel
+            required
+            #password="ngModel"
+          >
+          <span
+            class="help-block"
+            *ngIf="!password.valid && password.touched"
+          >
+            Please enter your password.
+          </span>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!subscriptionForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h3>Your Data</h3>
+      <ul>
+        <li>Email: {{userSubscription.email}}</li>
+        <li>Subscription: {{userSubscription.subscription}}</li>
+        <li>Password: {{userSubscription.password}}</li>
+      </ul>
     </div>
   </div>
 </div>
