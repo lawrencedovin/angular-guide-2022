@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // CUSTOM DIRECTIVES
 import { DropdownDirective } from './directives/dropdown.directive';
@@ -25,6 +25,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     // CUSTOM MODULES
     SharedModule,
     ShoppingListModule,

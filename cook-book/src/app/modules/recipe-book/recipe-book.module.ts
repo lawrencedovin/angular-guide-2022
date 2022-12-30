@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // COMPONENTS
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
@@ -27,7 +28,8 @@ import { RecipesEditComponent } from 'src/app/components/recipes-edit/recipes-ed
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     RecipeBookComponent
