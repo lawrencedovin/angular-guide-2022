@@ -8,11 +8,16 @@ import shoppingListData from '../assets/ingredients-data.json';
 })
 export class ShoppingListService {
   shoppingListChangedEvent = new Subject<Ingredient[]>();
+  startedEditing = new Subject<number>();
 
   private shoppingList = shoppingListData;
 
   getShoppingList() {
     return this.shoppingList.slice();
+  }
+
+  getIngredient(index: number) {
+    return this.shoppingList[index];
   }
 
   addIngredientToShoppingList(ingredient: Ingredient) {
@@ -25,8 +30,13 @@ export class ShoppingListService {
     this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 
-  deleteIngredientToShoppingList() {
-    this.shoppingList.pop();
+  deleteIngredientToShoppingList(editedItemIndex: number) {
+    this.shoppingList.splice(editedItemIndex, 1);
+    this.shoppingListChangedEvent.next(this.shoppingList.slice());
+  }
+
+  updateIngredient(editedItemIndex: number, newIngredient: Ingredient) {
+    this.shoppingList[editedItemIndex] = newIngredient;
     this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 }
