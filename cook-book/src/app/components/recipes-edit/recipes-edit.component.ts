@@ -27,6 +27,17 @@ export class RecipesEditComponent implements OnInit {
       )
   }
 
+  onAddIngredient() {
+    // The FormArray of ingredients gets accessed and pushes a new
+    // FormGroup to it.
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        'name': new FormControl(),
+        'amount': new FormControl()
+      })
+    );
+  }
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
