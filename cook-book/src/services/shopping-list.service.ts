@@ -20,17 +20,17 @@ export class ShoppingListService {
     return this.shoppingList[index];
   }
 
-  addIngredientToShoppingList(ingredient: Ingredient) {
+  addIngredient(ingredient: Ingredient) {
     this.shoppingList.push(ingredient);
     this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 
-  addIngredientsToShoppingList(ingredients: Array<Ingredient>) {
+  addIngredients(ingredients: Array<Ingredient>) {
     this.shoppingList.push(...ingredients);
     this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
 
-  deleteIngredientToShoppingList(editedItemIndex: number) {
+  deleteIngredient(editedItemIndex: number) {
     this.shoppingList.splice(editedItemIndex, 1);
     this.shoppingListChangedEvent.next(this.shoppingList.slice());
   }
