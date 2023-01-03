@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Ingredient } from 'src/app/models/ingredient.model';
-import shoppingListData from '../assets/ingredients-data.json';
+import shoppingListData from '../../assets/ingredients-data.json';
 
 @Injectable({
   providedIn: 'root'

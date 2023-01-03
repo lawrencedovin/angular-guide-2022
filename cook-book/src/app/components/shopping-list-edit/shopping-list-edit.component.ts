@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ShoppingListService } from 'src/services/shopping-list.service';
+import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/models/ingredient.model';
