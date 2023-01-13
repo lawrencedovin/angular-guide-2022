@@ -32,6 +32,11 @@ export class RecipesService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
+  deleteRecipe(recipe: Recipe) {
+    this.recipes = this.recipes.filter(item => item !== recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   updateRecipe(id: number, newRecipe: Recipe) {
     const index = id - 1;
     this.recipes[index] = newRecipe;

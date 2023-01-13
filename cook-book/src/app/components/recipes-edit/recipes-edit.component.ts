@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Recipe } from 'src/app/models/recipe.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -15,7 +14,8 @@ export class RecipesEditComponent implements OnInit {
   recipeForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipesService) {}
+              private recipeService: RecipesService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.route.params
@@ -40,6 +40,11 @@ export class RecipesEditComponent implements OnInit {
         ])
       })
     );
+  }
+
+  onCancel() {
+    // Redirects and goes up 1 level, to parent route from child route.
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {
@@ -85,5 +90,6 @@ export class RecipesEditComponent implements OnInit {
     this.id = this.editMode ? this.id : this.recipeService.newIDGenerated();
     if(this.editMode) this.recipeService.updateRecipe(this.id, this.recipeForm.value);
     else this.recipeService.addRecipe(this.id, this.recipeForm.value);
+    this.onCancel();
   }
 }

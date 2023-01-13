@@ -35,4 +35,10 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
+
+  onDeleteRecipe() {
+    this.recipesService.deleteRecipe(this.recipeItem);
+    // Redirects and goes up 1 level, to parent route from child route.
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
 }
