@@ -39,7 +39,7 @@ export class RecipesService {
 
   updateRecipe(id: number, newRecipe: Recipe) {
     const index = id - 1;
-    this.recipes[index] = newRecipe;
+    this.recipes[index] = {id, ...newRecipe};
     this.recipesChanged.next(this.recipes.slice());
   }
 
