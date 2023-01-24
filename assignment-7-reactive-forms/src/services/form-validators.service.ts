@@ -17,12 +17,8 @@ export class FormValidatorsService {
   asyncForbiddenName(control: FormControl): Promise<any> | Observable<any> {
     const promise = new Promise<any>((resolve, reject) => {
       setTimeout(() => {
-        if(control.value === 'Test') {
-          resolve({'projectNameIsForbidden': true});
-        }
-        else {
-          resolve(null);
-        }
+        if(control.value === 'Test') resolve({'projectNameIsForbidden': true});
+        else resolve(null);
       }, 1500);
     });
     return promise;

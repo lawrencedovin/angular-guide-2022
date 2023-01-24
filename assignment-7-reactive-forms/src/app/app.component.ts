@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, AsyncValidatorFn } from '@angular/forms';
 import { FormValidatorsService } from 'src/services/form-validators.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
