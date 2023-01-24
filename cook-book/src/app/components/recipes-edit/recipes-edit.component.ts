@@ -42,6 +42,13 @@ export class RecipesEditComponent implements OnInit {
     );
   }
 
+  onDeleteIngredient(ingredientCtrl) {
+    // The FormArray of ingredients gets accessed and deletes an ingredient.
+    const ingredients = (<FormArray>this.recipeForm.get('ingredients'));
+    ingredients.removeAt(ingredients.value.findIndex(ingredient => ingredient === ingredientCtrl.value));
+    this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+  }
+
   onCancel() {
     // Redirects and goes up 1 level, to parent route from child route.
     this.router.navigate(['../'], {relativeTo: this.route});
