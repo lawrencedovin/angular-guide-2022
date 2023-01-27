@@ -10,8 +10,9 @@ import { Post } from './post.model';
 })
 export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  loadedPosts: Post[] = [];
   baseUrl = 'https://ng-complete-guide-b3e29-default-rtdb.firebaseio.com';
+  loadedPosts: Post[] = [];
+  isLoading = false;
 
   constructor(private http: HttpClient) {}
 
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private fetchPosts() {
+    this.isLoading = true;
     this.http
       .get<{ [key: string]: Post }>(this.baseUrl + '/posts.json')
       .pipe(
@@ -52,6 +54,7 @@ export class AppComponent implements OnInit, OnDestroy {
       )
       .subscribe(posts => {
         this.loadedPosts = posts;
+        this.isLoading = false;
       });
   }
 

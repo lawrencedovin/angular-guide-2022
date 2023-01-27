@@ -50,12 +50,9 @@
     </div>
   </div>
   <div class="row">
-    <div
-      class="col-xs-12 col-md-6 col-md-offset-3"
-      *ngIf="loadedPosts.length > 0; then thenBlock else elseBlock">
-    </div>
-      <ng-template #thenBlock>
-        <table class="table table-hover">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div *ngIf="!isLoading; else loading">
+        <table *ngIf="loadedPosts.length > 0; else noPosts" class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Title</th>
@@ -69,9 +66,15 @@
             </tr>
           </tbody>
         </table>
+        <ng-template #noPosts>
+          No posts available!
+        </ng-template>
+      </div>
+      <ng-template #loading>
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </ng-template>
-      <ng-template #elseBlock>
-        No posts available!
-      </ng-template>
+    </div>
   </div>
 </div>
