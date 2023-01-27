@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription, map } from 'rxjs';
 import { Post } from './post.model';
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -14,20 +15,17 @@ export class AppComponent implements OnInit, OnDestroy {
   loadedPosts: Post[] = [];
   isLoading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
     this.fetchPosts();
   }
 
-  onCreatePost(Post: Post) {
+  onCreatePost(post: Post) {
     // Send Http request
-    this.subscription = this.http
-      .post<{ name: string }>(this.baseUrl + '/posts.json', Post)
-      .subscribe(responseData => {
-        console.log(responseData);
-    });
+    this.postsService.createPost(this.baseUrl, post);
   }
+
   onFetchPosts() {
     // Send Http request
     this.fetchPosts();
