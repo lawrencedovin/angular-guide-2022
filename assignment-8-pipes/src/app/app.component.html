@@ -10,7 +10,7 @@
       <ul class="list-group position-relative">
         <li
           class="list-group-item position-relative"
-          *ngFor="let server of servers | filterServers: filteredStatus: 'status' | sortServersByName"
+          *ngFor="let server of servers | filterServers: filteredStatus: 'status' | sortServers: 'name'"
           [ngClass]="getStatusClasses(server)">
           <strong>{{ server.name | shorten: 17}}</strong>
           | {{ server.instanceType | uppercase | reverse }}

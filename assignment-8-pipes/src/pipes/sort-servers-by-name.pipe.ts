@@ -8,10 +8,10 @@ interface Server {
 }
 
 @Pipe({
-  name: 'sortServersByName'
+  name: 'sortServers'
 })
-export class SortServersByNamePipe implements PipeTransform {
-  transform(servers: Array<Server>): Array<Server> {
-    return servers.sort((a, b) => (a.name > b.name) ? 1 : -1);
+export class SortServersPipe implements PipeTransform {
+  transform(servers: Array<Server>, propertyName: string): Array<Server> {
+    return servers.sort((a: any, b: any) => (a[propertyName] > b[propertyName]) ? 1 : -1);
   }
 }
