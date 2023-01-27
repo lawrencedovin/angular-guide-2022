@@ -50,8 +50,28 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p>No posts available!</p>
+    <div
+      class="col-xs-12 col-md-6 col-md-offset-3"
+      *ngIf="loadedPosts.length > 0; then thenBlock else elseBlock">
     </div>
+      <ng-template #thenBlock>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of loadedPosts">
+              <td>{{ post.title }}</td>
+              <td>{{ post.content }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+      <ng-template #elseBlock>
+        No posts available!
+      </ng-template>
   </div>
 </div>
