@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post.model';
-import { map } from 'rxjs';
+import { map, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
-
   baseURL = 'https://ng-complete-guide-b3e29-default-rtdb.firebaseio.com/posts.json';
+  error = new Subject<string>();
 
   constructor(private http: HttpClient) {}
 
