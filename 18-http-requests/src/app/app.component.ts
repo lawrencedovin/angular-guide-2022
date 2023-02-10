@@ -58,6 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onCloseError() {
     this.error = null;
+    this.isLoading = false;
   }
 
   ngOnDestroy(): void {
