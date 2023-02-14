@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpEventType } from '@angular/common/http';
 import { Post } from './post.model';
-import { map, Subject } from 'rxjs';
+import { map, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,13 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   createPost(post: Post) {
-    return this.http.post<{ name: string }>(this.baseURL, post);
+    return this.http.post<{ name: string }>(
+      this.baseURL,
+      post,
+      {
+        observe: 'response'
+      }
+    );
   }
 
   fetchPosts() {
@@ -42,7 +48,25 @@ export class PostsService {
   }
 
   deletePosts() {
-    return this.http.delete(this.baseURL);
+    return this.http.delete(
+      this.baseURL,
+      {
+        observe: 'events'
+      }
+    )
+    .pipe(
+        tap({
+          next: (event: HttpEvent<any>) => {
+            console.log(event);
+            if(event.type === HttpEventType.Sent) {
+              // Can perform some code here when response is sent to user.
+            }
+            if(event.type === HttpEventType.Response) {
+              console.log(event.body);
+            }
+          }
+        })
+    );
   }
 }
 

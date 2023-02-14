@@ -25,7 +25,8 @@ export class AppComponent implements OnInit, OnDestroy {
     // Send Http request
     this.postsService.createPost(post)
       .pipe(takeUntil(this.destroySubject))
-      .subscribe(() => {
+      .subscribe((responseData) => {
+        console.log(responseData);
         this.onFetchPosts();
       });
   }
