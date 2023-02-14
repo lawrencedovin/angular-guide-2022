@@ -51,7 +51,8 @@ export class PostsService {
     return this.http.delete(
       this.baseURL,
       {
-        observe: 'events'
+        observe: 'events',
+        responseType: 'json'
       }
     )
     .pipe(
