@@ -42,7 +42,7 @@ export class RecipesEditComponent implements OnInit {
     );
   }
 
-  onDeleteIngredient(ingredientCtrl) {
+  onDeleteIngredient(ingredientCtrl: FormControl) {
     // The FormArray of ingredients gets accessed and deletes an ingredient.
     const ingredients = (<FormArray>this.recipeForm.get('ingredients'));
     ingredients.removeAt(ingredients.value.findIndex(ingredient => ingredient === ingredientCtrl.value));

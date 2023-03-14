@@ -12,6 +12,11 @@ export class RecipesService {
 
   constructor() {}
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
     // Returns new array which us an exact copy of the recipes array
     return this.recipes.slice();
