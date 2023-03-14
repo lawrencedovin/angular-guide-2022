@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Recipe } from "src/app/models/recipe.model";
-import recipesData from "../../assets/recipes-data.json";
+// import recipesData from "../../assets/recipes-data.json";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
-  private recipes: Array<Recipe> = recipesData;
+  // private recipes: Array<Recipe> = recipesData;
+  private recipes: Array<Recipe> = [];
   recipesChanged = new Subject<Recipe[]>();
 
   constructor() {}
