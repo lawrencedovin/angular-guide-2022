@@ -14,11 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // CUSTOM DIRECTIVES
 import { DropdownDirective } from './directives/dropdown.directive';
 
+// AUTHENTICATION
+import { AuthComponent } from './auth/auth.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DropdownDirective
+    DropdownDirective,
+    // AUTHENTICATION
+    AuthComponent
   ],
   imports: [
     BrowserModule,
