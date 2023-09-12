@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     // ANGULAR MODULES
@@ -18,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     RouterModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    LoadingSpinnerComponent
   ]
 })
 export class SharedModule { }
