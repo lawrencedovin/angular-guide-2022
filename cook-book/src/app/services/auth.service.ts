@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError } from "rxjs/operators";
 import { throwError } from "rxjs";
@@ -20,18 +20,7 @@ export class AuthService {
         password,
         returnSecureToken: true
       }
-    ).pipe(catchError(errorResponse => {
-      let errorMessage = 'An uknown error for signup has occured!';
-      if(!errorResponse.error || !errorResponse.error.error) {
-        return throwError(errorMessage);
-      }
-      switch(errorResponse.error.error.message) {
-        case 'EMAIL_EXISTS':
-          errorMessage = 'This email exists already'
-          break;
-      }
-      return throwError(errorMessage);
-    }))
+    ).pipe(catchError(this.handleError));
   }
 
   public login(email: string, password: string) {
@@ -44,20 +33,25 @@ export class AuthService {
         password,
         returnSecureToken: true
       }
-    ).pipe(catchError(errorResponse => {
-      let errorMessage = 'An uknown error for login has occured!';
-      if(!errorResponse.error || !errorResponse.error.error) {
-        return throwError(errorMessage);
-      }
-      switch(errorResponse.error.error.message) {
-        case 'EMAIL_NOT_FOUND':
-          errorMessage = 'This email is not found'
-          break;
-        case 'INVALID_PASSWORD':
-          errorMessage = 'Invalid password for email has been entered'
-          break;
-      }
+    ).pipe(catchError(this.handleError));
+  }
+
+  private handleError(errorResponse: HttpErrorResponse) {
+    let errorMessage = 'An uknown error has occured!';
+    if(!errorResponse.error || !errorResponse.error.error) {
       return throwError(errorMessage);
-    }))
+    }
+    switch(errorResponse.error.error.message) {
+      case 'EMAIL_EXISTS':
+        errorMessage = 'This email exists already';
+        break;
+      case 'EMAIL_NOT_FOUND':
+        errorMessage = 'This email does not exist';
+        break;
+      case 'INVALID_PASSWORD':
+        errorMessage = 'Invalid password for email has been entered';
+        break;
+    }
+    return throwError(errorMessage);
   }
 }
