@@ -2,3 +2,9 @@
   color: red;
   background: white;
 }
+
+.nav-link {
+  &--logout {
+    cursor: pointer;
+  }
+}
