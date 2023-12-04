@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
@@ -9,31 +7,25 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // CUSTOM DIRECTIVES
 import { DropdownDirective } from './directives/dropdown.directive';
 
 // AUTHENTICATION
-import { AuthComponent } from './auth/auth.component';
-import { PlaceholderDirective } from './directives/placeholder.directive';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DropdownDirective,
-    PlaceholderDirective,
-    // AUTHENTICATION
-    AuthComponent
+    AppComponent
   ],
   imports: [
     HttpClientModule,
-    ReactiveFormsModule,
     // CUSTOM MODULES
     SharedModule,
     ShoppingListModule,
-    RecipeBookModule
+    RecipeBookModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

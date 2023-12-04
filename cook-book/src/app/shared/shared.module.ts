@@ -7,13 +7,18 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AlertComponent } from './alert/alert.component';
 import { FormsModule } from '@angular/forms';
+import { DropdownDirective } from '../directives/dropdown.directive';
+import { PlaceholderDirective } from '../directives/placeholder.directive';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    DropdownDirective,
+    // AUTHENTICATION
+    PlaceholderDirective
   ],
   imports: [
     // ANGULAR MODULES
@@ -27,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    DropdownDirective,
+    PlaceholderDirective,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
