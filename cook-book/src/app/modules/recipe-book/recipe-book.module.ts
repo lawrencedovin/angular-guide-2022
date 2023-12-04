@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -12,6 +11,7 @@ import { RecipeItemComponent } from 'src/app/components/recipe-list/recipe-item/
 import { RecipeListComponent } from 'src/app/components/recipe-list/recipe-list.component';
 import { RecipeStartComponent } from 'src/app/components/recipe-start/recipe-start.component';
 import { RecipesEditComponent } from 'src/app/components/recipes-edit/recipes-edit.component';
+import { RecipeBookRoutingModule } from './recipe-book-routing.module';
 
 
 @NgModule({
@@ -26,10 +26,10 @@ import { RecipesEditComponent } from 'src/app/components/recipes-edit/recipes-ed
   imports: [
     // ANGULAR MODULES
     CommonModule,
-    BrowserModule,
     AppRoutingModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecipeBookRoutingModule
   ],
   exports: [
     RecipeBookComponent
