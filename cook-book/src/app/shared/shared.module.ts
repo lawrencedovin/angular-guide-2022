@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AlertComponent } from './alert/alert.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,12 +20,18 @@ import { AlertComponent } from './alert/alert.component';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

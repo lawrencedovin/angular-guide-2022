@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 
 // COMPONENTS
@@ -15,9 +13,7 @@ import { ShoppingListEditComponent } from 'src/app/components/shopping-list-edit
   ],
   imports: [
     // ANGULAR MODULES
-    CommonModule,
-    BrowserModule,
-    FormsModule,
+    SharedModule,
     RouterModule.forChild([
       { path: 'shopping-list', component: ShoppingListComponent },
     ])

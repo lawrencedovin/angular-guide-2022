@@ -28,10 +28,7 @@ import { PlaceholderDirective } from './directives/placeholder.directive';
     AuthComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
     // CUSTOM MODULES
     SharedModule,
