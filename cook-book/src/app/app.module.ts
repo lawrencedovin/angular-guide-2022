@@ -16,12 +16,14 @@ import { DropdownDirective } from './directives/dropdown.directive';
 
 // AUTHENTICATION
 import { AuthComponent } from './auth/auth.component';
+import { PlaceholderDirective } from './directives/placeholder.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DropdownDirective,
+    PlaceholderDirective,
     // AUTHENTICATION
     AuthComponent
   ],
