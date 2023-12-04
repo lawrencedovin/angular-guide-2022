@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -18,12 +17,10 @@ import { ShoppingListEditComponent } from 'src/app/components/shopping-list-edit
     // ANGULAR MODULES
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    RouterModule
-  ],
-  exports: [
-    ShoppingListComponent
+    RouterModule.forChild([
+      { path: 'shopping-list', component: ShoppingListComponent },
+    ])
   ]
 })
 export class ShoppingListModule { }

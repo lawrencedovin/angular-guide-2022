@@ -30,9 +30,6 @@ import { RecipeBookRoutingModule } from './recipe-book-routing.module';
     RouterModule,
     ReactiveFormsModule,
     RecipeBookRoutingModule
-  ],
-  exports: [
-    RecipeBookComponent
   ]
 })
 export class RecipeBookModule { }
