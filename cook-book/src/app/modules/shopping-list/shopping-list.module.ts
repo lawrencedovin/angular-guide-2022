@@ -15,7 +15,7 @@ import { ShoppingListEditComponent } from 'src/app/components/shopping-list-edit
     // ANGULAR MODULES
     SharedModule,
     RouterModule.forChild([
-      { path: 'shopping-list', component: ShoppingListComponent },
+      { path: '', component: ShoppingListComponent },
     ])
   ]
 })

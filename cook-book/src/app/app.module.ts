@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 // CUSTOM MODULES
 import { SharedModule } from './shared/shared.module';
-import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 
 // AUTHENTICATION
 import { AuthModule } from './auth/auth.module';
@@ -21,7 +20,6 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     // CUSTOM MODULES
     SharedModule,
-    ShoppingListModule,
     AuthModule
   ],
   providers: [],
