@@ -6,10 +6,7 @@ import { AppComponent } from './app.component';
 
 // CUSTOM MODULES
 import { SharedModule } from './shared/shared.module';
-
-// AUTHENTICATION
-import { AuthModule } from './auth/auth.module';
-
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +15,9 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     HttpClientModule,
     BrowserModule,
+    AppRoutingModule,
     // CUSTOM MODULES
-    SharedModule,
-    AuthModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
