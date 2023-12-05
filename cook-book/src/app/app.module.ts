@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 // CUSTOM MODULES
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
-import { RecipeBookModule } from './modules/recipe-book/recipe-book.module';
-
-// CUSTOM DIRECTIVES
-import { DropdownDirective } from './directives/dropdown.directive';
 
 // AUTHENTICATION
 import { AuthModule } from './auth/auth.module';
@@ -21,10 +18,10 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     HttpClientModule,
+    BrowserModule,
     // CUSTOM MODULES
     SharedModule,
     ShoppingListModule,
-    RecipeBookModule,
     AuthModule
   ],
   providers: [],

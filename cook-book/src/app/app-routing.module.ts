@@ -4,7 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' }
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  {
+    path: 'recipes',
+    loadChildren: () => import('./modules/recipe-book/recipe-book.module')
+                        .then(module => module.RecipeBookModule)
+  }
 ];
 
 @NgModule({
