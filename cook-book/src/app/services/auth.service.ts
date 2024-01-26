@@ -5,17 +5,17 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { AuthResponseData } from '../models/auth.model';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  API_KEY = 'AIzaSyDWlIRz4UwmMMnQW_A9VZJ8ri6CYKyad4o';
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   public signup(email, password) {
-    const signupURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.API_KEY}`;
+    const signupURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.API_KEY}`;
 
     return this.http
       .post<AuthResponseData>(signupURL, {
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   public login(email: string, password: string) {
-    const loginURL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_KEY}`;
+    const loginURL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.API_KEY}`;
 
     return this.http
       .post<AuthResponseData>(loginURL, {
