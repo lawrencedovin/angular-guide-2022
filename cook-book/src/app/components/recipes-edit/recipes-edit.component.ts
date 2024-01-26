@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -11,7 +11,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class RecipesEditComponent implements OnInit {
   id: number;
   editMode = false;
-  recipeForm: FormGroup;
+  recipeForm: UntypedFormGroup;
 
   constructor(private route: ActivatedRoute,
               private recipeService: RecipesService,
@@ -31,10 +31,10 @@ export class RecipesEditComponent implements OnInit {
   onAddIngredient() {
     // The FormArray of ingredients gets accessed and pushes a new
     // FormGroup to it.
-    (<FormArray>this.recipeForm.get('ingredients')).push(
-      new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'amount': new FormControl(null, [
+    (<UntypedFormArray>this.recipeForm.get('ingredients')).push(
+      new UntypedFormGroup({
+        'name': new UntypedFormControl(null, Validators.required),
+        'amount': new UntypedFormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)
         ])
@@ -42,9 +42,9 @@ export class RecipesEditComponent implements OnInit {
     );
   }
 
-  onDeleteIngredient(ingredientCtrl: FormControl) {
+  onDeleteIngredient(ingredientCtrl: UntypedFormControl) {
     // The FormArray of ingredients gets accessed and deletes an ingredient.
-    const ingredients = (<FormArray>this.recipeForm.get('ingredients'));
+    const ingredients = (<UntypedFormArray>this.recipeForm.get('ingredients'));
     ingredients.removeAt(ingredients.value.findIndex(ingredient => ingredient === ingredientCtrl.value));
     this.recipeService.updateRecipe(this.id, this.recipeForm.value);
   }
@@ -58,7 +58,7 @@ export class RecipesEditComponent implements OnInit {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
-    let recipeIngredients = new FormArray([]);
+    let recipeIngredients = new UntypedFormArray([]);
 
     if(this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
@@ -68,9 +68,9 @@ export class RecipesEditComponent implements OnInit {
       if(recipe['ingredients']) {
         for(let ingredient of recipe.ingredients) {
           recipeIngredients.push(
-            new FormGroup({
-              'name': new FormControl(ingredient.name, Validators.required),
-              'amount': new FormControl(ingredient.amount, [
+            new UntypedFormGroup({
+              'name': new UntypedFormControl(ingredient.name, Validators.required),
+              'amount': new UntypedFormControl(ingredient.amount, [
                   Validators.required,
                   Validators.pattern(/^[1-9]+[0-9]*$/)
                 ]
@@ -81,16 +81,16 @@ export class RecipesEditComponent implements OnInit {
       }
     }
 
-    this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName, Validators.required),
-      'imagePath': new FormControl(recipeImagePath, Validators.required),
-      'description': new FormControl(recipeDescription, Validators.required),
+    this.recipeForm = new UntypedFormGroup({
+      'name': new UntypedFormControl(recipeName, Validators.required),
+      'imagePath': new UntypedFormControl(recipeImagePath, Validators.required),
+      'description': new UntypedFormControl(recipeDescription, Validators.required),
       'ingredients': recipeIngredients
     });
   }
 
   get controls() {
-    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+    return (<UntypedFormArray>this.recipeForm.get('ingredients')).controls;
   }
 
   onSubmit() {
